@@ -40,7 +40,7 @@ Testing different paths through San Jose revealed:
 startLocation = locationFromTag(makeTag("landmark", "northeastern_building"), cityMap)
 endTag = "parking=underground"
 ```
-![A1_2.2 Map](../A1_2.2.png)
+![A1_2.2 Map](./A1_2.2.png)
 ￼**Note**: Some paths may be invalid due to map limitations.
 
 ## 3. Route Planning: Unordered Waypoints
@@ -66,7 +66,7 @@ waypointTags = [
 # Define the end tag
 endTag = makeTag("landmark", "dac_phunk")
 ```
-![A1_3.3 Map](../A1_3.3.png)
+![A1_3.3 Map](./A1_3.3.png)
 
 ## 4 Route Planning: Speeding up Search with A*
 4.1 Implementation
