@@ -25,25 +25,25 @@ class HalvingGame(object):
         # Start code
         player, number = state
         if action == '/':
-            return (state // 2)
+            return (-state[0], state // 2)
         elif action == '-': 
-            return state - 1
+            return (-state[0], state - 1)
         # End code
 
     def isEnd(self, state):
         # Start code
-        return state == 0
+        return state[1] == 0
         # End code
 
 
     def utility(self, state):
         # Start code
-
+        return state[0] + 100000
         # End code
 
     def player(self, state):
         # Start code
-
+        return state[0]
         # End code
 
 ############################################################
