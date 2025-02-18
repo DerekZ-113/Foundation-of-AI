@@ -18,12 +18,12 @@ There are 4 main parts for this course will display here.
 - [Assignment 5]()
 
 ## Class Notes
-- [Lecture 1 Introduction of AI]()
+- [Lecture 1 Introduction of AI](../Foundation%20of%20AI/Class%20Notes/Lecture%201%20Introduction%20of%20AI.md)
 - [Lecture 2 Search Problem - Uniform Cost Search]()
 - [Lecture 3 Search Problem - Uniform Cost Search cont.]()
 - [Lecture 4 Search Problem - Heuristic Function]()
 - [Lecture 5 A* Algorithm and Adversarial Games]()
-- [Lecture 6 Adversarial Games - ]()
+- [Lecture 6 Adversarial Games]()
 - [Lecture 7 Constraint Satisfaction Problems - ]()
 - [Lecture 8 Constraint Satisfaction Problems - ]()
 - [Lecture 9 Uncertainty Quantification - Markovin Assumption]()
