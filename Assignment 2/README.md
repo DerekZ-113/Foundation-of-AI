@@ -57,9 +57,10 @@ If we decide to end the game, we set the deck to none, and the value in hand wil
 
 
 ### 1.2 Backjack MDP
-#### 1.2.1
+#### 1.2.1 SuccAndProbReward()
 Code implementation is in [submission.py](./Starter%20Code/submission.py)
-#### 1.2.2
+
+#### 1.2.2 peekingMDP()
 Code implementation is in [submission.py](./Starter%20Code/submission.py)
 
 ## 2. Network Parameters
