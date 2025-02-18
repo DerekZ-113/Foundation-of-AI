@@ -78,9 +78,72 @@ class BlackjackMDP(util.MDP):
     # * When the probability is 0 for a transition to a particular new state,
     #   don't include that state in the list returned by succAndProbReward.
     def succAndProbReward(self, state, action):
-        # BEGIN_YOUR_CODE 
-        raise Exception("Not implemented yet")
-        # END_YOUR_CODE
+
+        (stateSum, peekIndex, deckCounts) = state
+
+        if deckCounts is None:
+            return []
+
+        if action == 'Quit':
+            newState = (stateSum, None, None)
+            return [(newState, 1.0, stateSum)]
+
+        if action == 'Take':
+            results = []
+            if peekIndex is not None:
+                cardValue = self.cardValues[peekIndex]
+                newSum = stateSum + cardValue
+                if newSum > self.threshold:
+                    newState = (newSum, None, None)
+                    results.append((newState, 1.0, 0))
+                else:
+                    newDeckCounts = list(deckCounts)
+                    newDeckCounts[peekIndex] -= 1
+                    if sum(newDeckCounts) == 0:
+                        newState = (newSum, None, None)
+                        reward = newSum
+                    else:
+                        newState = (newSum, None, tuple(newDeckCounts))
+                        reward = 0
+                    results.append((newState, 1.0, reward))
+                return results
+
+            totalCards = sum(deckCounts)
+            for i, count in enumerate(deckCounts):
+                if count <= 0:
+                    continue
+                cardValue = self.cardValues[i]
+                prob = count / float(totalCards)
+                newSum = stateSum + cardValue
+                if newSum > self.threshold:
+                    newState = (newSum, None, None)
+                    results.append((newState, prob, 0))
+                else:
+                    newDeckCounts = list(deckCounts)
+                    newDeckCounts[i] -= 1
+                    if sum(newDeckCounts) == 0:
+                        newState = (newSum, None, None)
+                        reward = newSum
+                    else:
+                        newState = (newSum, None, tuple(newDeckCounts))
+                        reward = 0
+                    results.append((newState, prob, reward))
+            return results
+
+        if action == 'Peek':
+            if peekIndex is not None:
+                return []
+            totalCards = sum(deckCounts)
+            results = []
+            for i, count in enumerate(deckCounts):
+                if count <= 0:
+                    continue
+                prob = count / float(totalCards)
+                newState = (stateSum, i, deckCounts)
+                results.append((newState, prob, -self.peekCost))
+            return results
+
+        return []
 
     def discount(self):
         return 1
@@ -93,6 +156,4 @@ def peekingMDP():
     Return an instance of BlackjackMDP where peeking is the
     optimal action at least 10% of the time.
     """
-    # BEGIN_YOUR_CODE 
-    raise Exception("Not implemented yet")
-    # END_YOUR_CODE
+    return BlackjackMDP(cardValues=[1, 5, 25], multiplicity=3, threshold=20, peekCost=1)
