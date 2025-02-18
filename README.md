@@ -27,3 +27,5 @@ There are 4 main parts for this course will display here.
 - [Lecture 7 Constraint Satisfaction Problems - ]()
 - [Lecture 8 Constraint Satisfaction Problems - ]()
 - [Lecture 9 Uncertainty Quantification - Markovin Assumption]()
+- [Lecture 10]()
+- [Lecture 11]()
