@@ -10,29 +10,25 @@ from util import ValueIteration
 class CounterexampleMDP(util.MDP):
     # Return a value of any type capturing the start state of the MDP.
     def startState(self):
-        # BEGIN_YOUR_CODE 
-        raise Exception("Not implemented yet")
-        # END_YOUR_CODE
+        return "start"
 
     # Return a list of strings representing actions possible from |state|.
     def actions(self, state):
-        # BEGIN_YOUR_CODE 
-        raise Exception("Not implemented yet")
-        # END_YOUR_CODE
+        if state == "start":
+            return ["a"]
+        return []
 
     # Given a |state| and |action|, return a list of (newState, prob, reward) tuples
     # corresponding to the states reachable from |state| when taking |action|.
     # Remember that if |state| is an end state, you should return an empty list [].
     def succAndProbReward(self, state, action):
-        # BEGIN_YOUR_CODE 
-        raise Exception("Not implemented yet")
-        # END_YOUR_CODE
+        if state == "start" and action == "a":
+            return [("yes", 0.1, 100), ("no", 0.9, 0)]
+        return []
 
     # Set the discount factor (float or integer) for your counterexample MDP.
     def discount(self):
-        # BEGIN_YOUR_CODE 
-        raise Exception("Not implemented yet")
-        # END_YOUR_CODE
+        return 1.0
 
 ############################################################
 # Problem 3
